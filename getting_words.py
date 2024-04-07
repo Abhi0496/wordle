@@ -29,6 +29,14 @@ def inc(data):
             arr.append(word)
     return arr
     
+def startswith_voi(data):
+    arr = []
+
+    for word in data:
+        if word["word"].startswith("voi"):
+            arr.append(word["word"])
+    
+    return arr
 
 if response.status_code == 200:
     # Parse the JSON data
@@ -36,8 +44,8 @@ if response.status_code == 200:
 
     
     #print(endswith_ait(data))
-    print(inc(data))
-
+    #print(inc(data))
+    print(startswith_voi(data))
     
 else:
     print(f"Error: {response.status_code}")
