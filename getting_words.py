@@ -45,6 +45,23 @@ def startswith_bro(data):
             arr.append(word['word'])
     return arr
 
+def contains_it(data):
+    arr = []
+    """
+    temp = ["a","u","d","o","n","r","b"]
+    for word in data:
+        if "it" in word["word"]:
+            for i in temp:
+                if i in word["word"]:
+                    break
+            else:
+                arr.append(word["word"])
+    """
+    for word in data:
+        if word['word'].endswith('ithe'):
+            arr.append(word["word"])
+    return arr
+
 if response.status_code == 200:
     # Parse the JSON data
     data = response.json()
@@ -53,6 +70,7 @@ if response.status_code == 200:
     #print(endswith_ait(data))
     #print(inc(data))
     #print(startswith_voi(data))
-    print(startswith_bro(data))
+    #print(startswith_bro(data))
+    print(contains_it(data))
 else:
     print(f"Error: {response.status_code}")
