@@ -70,6 +70,15 @@ def endswith_et(data):
     
     return arr
 
+def endswith_iae(data):
+    arr = []
+    for word in data:
+        if word["word"][1:3] == "ai" and word["word"][-1] == "e":
+            arr.append(word['word'])
+    
+    return arr
+    
+
 if response.status_code == 200:
     # Parse the JSON data
     data = response.json()
@@ -80,6 +89,7 @@ if response.status_code == 200:
     #print(startswith_voi(data))
     #print(startswith_bro(data))
     #print(contains_it(data))
-    print(endswith_et(data))
+    #print(endswith_et(data))
+    print(endswith_iae(data))
 else:
     print(f"Error: {response.status_code}")
