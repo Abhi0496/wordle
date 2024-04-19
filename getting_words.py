@@ -62,6 +62,14 @@ def contains_it(data):
             arr.append(word["word"])
     return arr
 
+def endswith_et(data):
+    arr = []
+    for word in data:
+        if word['word'].endswith('et'):
+            arr.append(word['word'])
+    
+    return arr
+
 if response.status_code == 200:
     # Parse the JSON data
     data = response.json()
@@ -71,6 +79,7 @@ if response.status_code == 200:
     #print(inc(data))
     #print(startswith_voi(data))
     #print(startswith_bro(data))
-    print(contains_it(data))
+    #print(contains_it(data))
+    print(endswith_et(data))
 else:
     print(f"Error: {response.status_code}")
