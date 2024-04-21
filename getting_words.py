@@ -77,6 +77,14 @@ def endswith_iae(data):
             arr.append(word['word'])
     
     return arr
+
+def contains_oly(data):
+    arr = []
+    for word in data:
+        if word["word"][1:3] == "ol" and word["word"][-1] == "y":
+            arr.append(word["word"])
+    
+    return arr
     
 
 if response.status_code == 200:
@@ -90,6 +98,7 @@ if response.status_code == 200:
     #print(startswith_bro(data))
     #print(contains_it(data))
     #print(endswith_et(data))
-    print(endswith_iae(data))
+    #print(endswith_iae(data))
+    print(contains_oly(data))
 else:
     print(f"Error: {response.status_code}")
