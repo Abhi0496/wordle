@@ -85,6 +85,19 @@ def contains_oly(data):
             arr.append(word["word"])
     
     return arr
+
+def contains_oer(data):
+    arr = []
+    for word in data:
+        if word["word"][1] =="o" and word["word"][3:5] == "er":
+            arr.append(word["word"])
+    
+    for word in arr:
+        temp = ['l','u','i','t','n','c','d','j','k','s']
+        for j in temp:
+            if j in word:
+                arr.remove(word)
+    return arr
     
 
 if response.status_code == 200:
@@ -99,6 +112,7 @@ if response.status_code == 200:
     #print(contains_it(data))
     #print(endswith_et(data))
     #print(endswith_iae(data))
-    print(contains_oly(data))
+    #print(contains_oly(data))
+    print(contains_oer(data))
 else:
     print(f"Error: {response.status_code}")
