@@ -98,6 +98,15 @@ def contains_oer(data):
             if j in word:
                 arr.remove(word)
     return arr
+
+def endswith_apid(data):
+    arr = []
+
+    for word in data:
+        if word['word'].endswith("apid"):
+            arr.append(word['word'])
+    
+    return arr
     
 
 if response.status_code == 200:
@@ -113,6 +122,7 @@ if response.status_code == 200:
     #print(endswith_et(data))
     #print(endswith_iae(data))
     #print(contains_oly(data))
-    print(contains_oer(data))
+    #print(contains_oer(data))
+    print(endswith_apid(data))
 else:
     print(f"Error: {response.status_code}")
