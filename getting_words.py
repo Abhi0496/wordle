@@ -108,6 +108,14 @@ def endswith_apid(data):
     
     return arr
     
+def endswith_rune(data):
+    arr = []
+
+    for word in data:
+        if word['word'].endswith("rune"):
+            arr.append(word['word'])
+    
+    return arr
 
 if response.status_code == 200:
     # Parse the JSON data
@@ -123,6 +131,7 @@ if response.status_code == 200:
     #print(endswith_iae(data))
     #print(contains_oly(data))
     #print(contains_oer(data))
-    print(endswith_apid(data))
+    #print(endswith_apid(data))
+    print(endswith_rune(data))
 else:
     print(f"Error: {response.status_code}")
